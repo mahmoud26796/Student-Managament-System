@@ -1,3 +1,5 @@
+using StudentManagamentSystem.Entities;
+
 namespace StudentManagamentSystem.DTOs
 {
     public record StudentDto(
@@ -6,5 +8,11 @@ namespace StudentManagamentSystem.DTOs
          string Address,
          string Email,
          string Phone
-    );
+    )
+    {
+        public static implicit operator StudentDto(Student v)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }
