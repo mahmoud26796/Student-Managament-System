@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using StudentManagamentSystem.Data;
+using StudentManagamentSystem.Mappers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,11 @@ builder.Services.AddOpenApi();
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnStr"));
+});
+builder.Services.AddAutoMapper(cgf =>
+{
+    // passing the configurations to get the assembly of the models to convert between model and dto
+    cgf.AddMaps(typeof(MappingProfile).Assembly);
 });
 var app = builder.Build();
 
