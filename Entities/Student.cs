@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using StudentManagamentSystem.DTOs;
 
 namespace StudentManagamentSystem.Entities
 {
@@ -26,10 +27,14 @@ namespace StudentManagamentSystem.Entities
         public string? Phone { get; set; }
 
         [Required]
-        public List<Course>? Courses { get; set; }
+        public List<Course>? Courses { get; set; } = [];
 
         [Required]
-        public List<string>? Grades { get; set; }
+        public List<string>? Grades { get; set; } = [];
 
+        public static implicit operator Student(StudentDto v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
