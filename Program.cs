@@ -14,7 +14,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddAutoMapper(cgf =>
 {
     // passing the configurations to get the assembly of the models to convert between model and dto
-    cgf.AddMaps(typeof(MappingProfile).Assembly);
+    cgf.AddMaps(typeof(StudentProfile).Assembly);
 });
 var app = builder.Build();
 
