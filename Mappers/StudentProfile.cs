@@ -1,5 +1,5 @@
 using AutoMapper;
-using StudentManagamentSystem.DTOs;
+using StudentManagamentSystem.DTOs.StudentDtos;
 using StudentManagamentSystem.Entities;
 
 namespace StudentManagamentSystem.Mappers

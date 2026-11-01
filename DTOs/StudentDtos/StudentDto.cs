@@ -1,6 +1,6 @@
 using StudentManagamentSystem.Entities;
 
-namespace StudentManagamentSystem.DTOs
+namespace StudentManagamentSystem.DTOs.StudentDtos
 {
     public record StudentDto(
         string First_Name,

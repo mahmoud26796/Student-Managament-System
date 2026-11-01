@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StudentManagamentSystem.Data;
 using StudentManagamentSystem.DTOs;
+using StudentManagamentSystem.DTOs.StudentDtos;
 using StudentManagamentSystem.Entities;
 
 namespace StudentManagamentSystem.Controllers
