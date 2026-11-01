@@ -4,9 +4,9 @@ using StudentManagamentSystem.Entities;
 
 namespace StudentManagamentSystem.Mappers
 {
-    public class MappingProfile : Profile
+    public class StudentProfile : Profile
     {
-        public MappingProfile()
+        public StudentProfile()
         {
             CreateMap<Student, StudentDto>().ReverseMap();
         }
