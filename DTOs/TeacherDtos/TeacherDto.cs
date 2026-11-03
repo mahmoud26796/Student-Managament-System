@@ -8,11 +8,5 @@ namespace StudentManagamentSystem.DTOs.TeacherDtos
         string Address,
         string Email,
         string Phone
-    )
-    {
-        public static implicit operator TeacherDto(Teacher v)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    );
 }

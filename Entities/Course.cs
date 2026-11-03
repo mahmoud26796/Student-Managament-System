@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace StudentManagamentSystem.Entities
 {
@@ -9,13 +10,18 @@ namespace StudentManagamentSystem.Entities
 
         [Required]
         [StringLength(100)]
-        public int Name { get; set; }
+        public string? Name { get; set; }
 
         [Required]
-        public int Hourse { get; set; }
+        public int Hours { get; set; }
+
+        [ForeignKey(nameof(Teacher))]
+        public int TeacherId { get; set; }
+
+        public Teacher? Teacher { get; set; }
 
         [Required]
-        public List<Student>? Students { get; set; }
+        public ICollection<Student>? Students { get; set; } = [];
     }
 
 }

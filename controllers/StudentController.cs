@@ -9,7 +9,7 @@ using StudentManagamentSystem.Entities;
 namespace StudentManagamentSystem.Controllers
 {
     [ApiController]
-    [Route("api/controller")]
+    [Route("api/[controller]")]
     class StudentController(AppDbContext appDbContext, IMapper mapper) : ControllerBase
     {
         private readonly AppDbContext _appDbContext = appDbContext;
@@ -20,11 +20,13 @@ namespace StudentManagamentSystem.Controllers
         {
             var students = await _appDbContext.Students.ToListAsync();
             StudentDto studentDto;
+            List<StudentDto> studentDtos = [];
             foreach (var student in students)
             {
                 studentDto = _mapper.Map<StudentDto>(student);
+                studentDtos.Add(studentDto);
             }
-            return Ok(students);
+            return Ok(studentDtos);
         }
 
         [HttpGet("{id}")]
@@ -52,7 +54,7 @@ namespace StudentManagamentSystem.Controllers
             };
             await _appDbContext.Students.AddAsync(student);
             await _appDbContext.SaveChangesAsync();
-            return CreatedAtRoute("GetPRoductById", new { id = student.Id }, newStudent);
+            return CreatedAtRoute("GetById", new { id = student.Id }, student);
         }
 
         [HttpPut("{id}")]
@@ -63,17 +65,11 @@ namespace StudentManagamentSystem.Controllers
             {
                 return NotFound("Student Not Found!");
             }
-            student = new Student
-            {
-                Id = updatedStudent.Id,
-                First_Name = updatedStudent.First_Name,
-                Last_Name = updatedStudent.Last_Name,
-                Address = updatedStudent.Address,
-                Email = updatedStudent.Email,
-                Phone = updatedStudent.Phone,
-                Courses = updatedStudent.Courses,
-                Grades = updatedStudent.Grades
-            };
+            student.First_Name = updatedStudent.First_Name;
+            student.Last_Name = updatedStudent.Last_Name;
+            student.Address = updatedStudent.Address;
+            student.Email = updatedStudent.Email;
+            student.Phone = updatedStudent.Phone;
             await _appDbContext.SaveChangesAsync();
             return NoContent();
         }

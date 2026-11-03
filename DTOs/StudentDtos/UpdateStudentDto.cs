@@ -11,11 +11,5 @@ namespace StudentManagamentSystem.DTOs
          string Phone,
          List<Course> Courses,
          List<string> Grades
-    )
-    {
-        public static implicit operator UpdateStudentDto(Student v)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    );
 }
